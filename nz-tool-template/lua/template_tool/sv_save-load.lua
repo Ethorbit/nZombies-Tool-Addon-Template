@@ -31,16 +31,18 @@ nzMapping:AddSaveModule("TemplateEntities", { -- This is what controls saving an
 
         -- Grabs all entities of our class and saves their properties into the config (our save module is isolated and won't conflict with other saved stuff, as long as the AddSaveModule key is unique)
 		for _,v in pairs(ents.FindByClass("template_tool_entity")) do
-			table.insert(zed_special_spawns, {
+			table.insert(template_entities, {
                 pos = v:GetPos(),
                 modelscale = v:GetScale()
 			})
 		end
 
-		return zed_special_spawns
+		return template_entities
 	end,
 	loadfunc = function(data) -- Called for all the TemplateEntities from a saved config file, and returns their data
-		nzMapping:TemplateEntity(data)
+		for _,template_data in pairs(data) do
+			nzMapping:TemplateEntity(template_data)
+		end
 	end,
 	cleanents = {"template_tool_entity"},
 })
