@@ -1,2 +1,2 @@
 # nZombies-Tool-Addon-Template
-A custom addon tool template for the nZombies gamemode.
+An addon that adds a new nZombies tool that creates an HL2 Kleiner model with a customizable Scale setting.
